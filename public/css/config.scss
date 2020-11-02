@@ -1,0 +1,290 @@
+/****/
+
+
+$tablet-size: 800px;
+$mobile-size: 680px;
+
+/****************** TOC****************/
+// Global
+// Buttons
+// Card
+// Forms
+// Modal
+// table
+
+
+*{
+  margin: 0;
+  padding: 0;
+  resize: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+html{
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container, .container-fluid{
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.container-fluid{
+  width: 90%;
+}
+.section{
+  padding: 4rem 0rem;
+  border-bottom: 1px solid #F1F1F1;
+  @media screen and (max-width: $mobile-size) {
+
+    padding: 2rem 0rem;
+
+  }
+
+  &-title{
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 1.8rem auto;
+    font-size: 1.8rem;
+    position: relative;
+    
+  }
+}
+
+.point{
+  position: relative;
+  &-tl::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px #444 solid;
+    border-width: thick;
+    z-index: 1;
+    top: -8px;
+    left: 40%;
+  }
+  &-tr::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px #444 solid;
+    border-width: thick;
+    z-index: 1;
+    top: -6px;
+    right: 40%;
+  }
+  &-bl::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px #444 solid;
+    border-width: thick;
+    z-index: 1;
+    bottom: 3px;
+    left: 38%;
+  }
+  &-br::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px #444 solid;
+    border-width: thick;
+    z-index: 1;
+    bottom: 2px;
+    right: 38%;
+  }
+}
+
+// Buttons
+
+.btn{
+  padding: .8rem 1.2rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: all 0.4s;
+  // &-primary{
+  //   background-color: $primary-color;
+  //   color: $light-color;
+  // }
+  // &-reverse{
+  //   background-color:;
+  //   color: #ddd;
+  // }
+  &:hover{
+    opacity: .8;
+  }
+}
+
+/*********************** CARD***********************/
+.card-wrapper{
+  display: flex;
+  flex-direction: row;
+  column-gap: .7rem;
+  justify-content: center;
+  align-content: center;
+  @media screen and (max-width: $mobile-size) {
+    display: block;
+    margin: auto;
+    width: 100%;
+
+  }
+
+}
+.card{
+  background-color: transparent;
+  border-radius: .7rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 2px #ddd;
+  text-align: center;
+  &-icon{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 3.8rem;
+    
+  }
+  &-image{
+    width: 100%;
+    display: block;
+    margin: auto;
+    height: 9rem;
+    max-height: 9rem;
+  }
+  &-title{
+    width: 100%;
+    display: block;
+    font-size: 1.4rem;
+    margin: .5rem auto;
+    font-weight: bolder;
+  }
+  &-caption{
+    padding: .5rem;
+    width: 100%;
+    display: block;
+  }
+  &-footer{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    width: 100%;
+    padding: .3rem;
+  }
+
+  &-cta{
+    display: block;
+    width: 100%;
+    padding: .5rem 0rem;
+    background-color: #ddd;
+  }
+  @media screen and (max-width: $mobile-size) {
+    margin-bottom: 1.2rem;
+    
+  }
+
+}
+
+/*********************** FORMS *********************/
+label{
+  display: block;
+  font-size: .7rem;
+  padding-bottom: .2rem;
+  text-align: left;
+}
+.tip{
+  display: block;
+  font-size: .7rem;
+  font-style: oblique;
+}
+.form-group{
+  display: block;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  &-inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 1rem;
+    margin-bottom: 1.2rem;
+
+    .form-item{
+      width: 48%;
+      flex-flow: row;
+    }
+    .form-item:first-of-type{
+      margin-right: 1.3rem;
+    }
+  }
+
+}
+
+.form-control{
+  display: block;
+  width: 100%;
+  padding: .4rem ;
+  font-size: 1.1rem;
+  outline: none;
+  border: none;
+  background-color: #F1F1F1;
+  // color: $dark-color;
+}
+
+// Modals
+
+// Pills
+
+// ******************************** TABLE *****************************//
+.table{
+  width: 100%;
+  
+  thead{
+    font-weight: bolder;
+  }
+  // th{
+  //   background-color: $primary-color;
+  //   color: $light-color;
+  // }
+  tr:hover{
+    background-color: #ddd;
+  }
+  tr:nth-child(even){
+    background-color: #CCC;
+  }
+  th{
+    height: 2.5rem;
+    text-align: left;
+  }
+  td{
+    vertical-align: middle;
+  }
+  th, td{
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1ps solid #ddd;
+  }
+}
+
+/*************** SECTIONS & HEADERS ********************/
+.section{
+  padding: 4rem 0rem;
+  border-bottom: 1px solid #F1F1F1;
+  @media screen and (max-width: $tablet-size) {
+    padding: 2rem 0rem;
+  }
+
+  &-title{
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 1.8rem auto;
+    font-size: 1.8rem;
+    position: relative;
+    
+  }
+}
