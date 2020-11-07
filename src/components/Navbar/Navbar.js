@@ -29,11 +29,11 @@ const Navbar = () => {
           </label>
           <div className="navlinks">
             <Link to="/showcase" className="nav-item"> Showcase </Link>
-            {/* <Link to="/about" className="nav-item"> About </Link> */}
+            <Link to="/login" className="nav-item"> Login </Link>
             {/* <Link to="#our-works" className="nav-item"> Solutions </Link>
             <Link to="#contact" className="nav-item"> Contact </Link> */}
 
-            <Link to="/signup" className="nav-item navbar-cta"> Signup </Link>
+            <Link to="/signup/sme" className="nav-item navbar-cta"> Signup </Link>
 
           </div>
         </div>

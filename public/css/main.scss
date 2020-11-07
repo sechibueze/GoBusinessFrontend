@@ -1,4 +1,4 @@
-@import 'config';
+
 
 $blue: #007bff;
 $indigo: #6610f2;
@@ -31,6 +31,9 @@ $primary-color: #5678ee;
 $light-color: #f9f9f9;
 $dark-color: #06002d;
 $bg-dark: #333;
+
+@import 'config';
+@import 'admin';
 
 /********************** Navigation Bar *************************/
 .fixed{
@@ -274,7 +277,9 @@ $bg-dark: #333;
   background-color: $primary-color;
   color: $light-color;
 }
-
+#signup-form{
+  margin-bottom: 3rem;
+}
 .footer{
   color: $light-color;
   background-color: $dark-color;

@@ -9,7 +9,8 @@ export default (state=initialState, action) => {
     case SET_ALERT:
       return {
         ...state,
-        alertBucket: state.alertBucket.concat([payload])
+        alertBucket: state.alertBucket.concat([payload]),
+       
       };
 
     case CLEAR_ALERT:
