@@ -14,7 +14,8 @@ const BusinessManager = ({loading, currentUser, getBusinessListByFilter, resetBu
   const [editBusinessModal, setEditBusinessModal] = useState(false);
   const [editBusinessData, setEditBusinessData] = useState({ business: ''});
   const filter = currentUser.auth.includes('admin') ? {} : { ownerId: currentUser.id };
-  useEffect(() => getBusinessListByFilter(filter), [newBusiness, updatedBusiness, deletedBusiness]);
+  const loadBusinessListWithFilter = () => getBusinessListByFilter(filter);
+  useEffect(loadBusinessListWithFilter, [newBusiness, updatedBusiness, deletedBusiness]);
   
   const deleteBusiness = businessId => {
     if (window.confirm("I just do nothing for NOW ? " + businessId)) {

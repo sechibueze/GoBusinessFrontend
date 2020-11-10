@@ -23,7 +23,8 @@ const AddInvestmentForm = ({ createInvestment, dismiss, newInvestment}) => {
     e.preventDefault();
     return createInvestment(data);
   }
-  useEffect(() => {if (newInvestment !== null) dismiss()}, [newInvestment])
+  const dismissOnInvestment = () => {if (newInvestment !== null) dismiss()};
+  useEffect( dismissOnInvestment, [newInvestment])
 
   const { title, description, budget, start_date, end_date, unitCost, interest} = data;
   return ( 

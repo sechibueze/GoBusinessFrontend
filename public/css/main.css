@@ -104,6 +104,7 @@ a {
   column-gap: 0.7rem;
   justify-content: center;
   align-content: center;
+  flex-wrap: wrap;
 }
 @media screen and (max-width: 680px) {
   .card-wrapper {
@@ -114,6 +115,9 @@ a {
 }
 
 .card {
+  flex-grow: 1;
+  flex-basis: 33%;
+  align-self: center;
   background-color: transparent;
   border-radius: 0.7rem;
   border: 1px solid #ddd;
@@ -1035,7 +1039,7 @@ label {
 }
 
 .card {
-  flex: 1;
+  margin: 0.4rem auto;
   background-color: #007bff;
   color: #f8f9fa;
 }

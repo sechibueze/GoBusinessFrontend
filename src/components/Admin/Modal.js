@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { APP_NAME } from '../../_actions/types';
 
 const Modal = ({

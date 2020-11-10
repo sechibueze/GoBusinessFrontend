@@ -25,7 +25,8 @@ const EditInvestmentform = ({investmentData, editInvestment, dismiss, updatedInv
     e.preventDefault();
     return editInvestment(data);
   }
-  useEffect(() => {if (updatedInvestment !== null) dismiss()}, [updatedInvestment])
+  const dismissWhenUpdated = () => {if (updatedInvestment !== null) dismiss()};
+  useEffect( dismissWhenUpdated, [updatedInvestment])
 
   const { title, description, budget, unitCost, interest, start_date, end_date } = data;
   return ( 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { logout } from '../../_actions/AuthActions';
+import { APP_NAME } from '../../_actions/types';
 const AuthContainer = ({ children, currentUser, logout }) => {
   return ( 
     <Fragment>
@@ -12,12 +13,12 @@ const AuthContainer = ({ children, currentUser, logout }) => {
         <sidebar className="sidebar">         
             <label htmlFor="sidebar-switcher" className="sidebar-close-btn fa fa-times" />
             <header>
-              <Link className="admin-logo" to="/"> <span className="admin-logo-icon fa fa-book-reader fa-2x" /> <span className="admin-logo-name">Shoollover</span> </Link>
+              <Link className="admin-logo" to="/"> <span className="admin-logo-icon fas fa-stream fa-2x" /> <span className="admin-logo-name"> { APP_NAME} </span> </Link>
             </header>
             <div className="sidebar-actions">
-              <Link to="/business-manager" className="sidebar-action-link"> <span className="fa fa-users admin-sidebar-icon"/> Venture Admin</Link>
-              <Link to="/investment-manager" className="sidebar-action-link"> <span className="fa fa-tags admin-sidebar-icon"/> Invest Admin</Link>
-              <Link to="/my-contributions" className="sidebar-action-link"> <span className="fa fa-comment-dots admin-sidebar-icon"/> Contributions</Link>
+              <Link to="/business-manager" className="sidebar-action-link"> <span className="fa fa-users admin-sidebar-icon"/> Businesses</Link>
+              <Link to="/investment-manager" className="sidebar-action-link"> <span className="fa fa-tags admin-sidebar-icon"/> Business Projects </Link>
+              <Link to="/my-contributions" className="sidebar-action-link"> <span className="fa fa-comment-dots admin-sidebar-icon"/> My Investments</Link>
               {
                 currentUser && currentUser.auth.includes('admin') && (
                   <Fragment>
@@ -26,7 +27,7 @@ const AuthContainer = ({ children, currentUser, logout }) => {
                   </Fragment>
                 )
               }
-              <Link to="http://" className="sidebar-action-link"> <span className="fa fa-cogs admin-sidebar-icon"/> Settings</Link>
+              {/* <Link to="http://" className="sidebar-action-link"> <span className="fa fa-cogs admin-sidebar-icon"/> Settings</Link> */}
             
             </div>
           
@@ -38,7 +39,7 @@ const AuthContainer = ({ children, currentUser, logout }) => {
             <label for="sidebar-switcher" className="fa fa-bars fa-2x toggle-sidebar" />
 
             <ul className="admin-navbar-actions">
-              <li>
+              {/* <li>
                 <Link to="/business-manager"> <span className="admin-navbar-item-icon fa fa-database" title="Tables"/> <span className="sm-hide">Business Admin</span> </Link>
               </li>
               <li>
@@ -52,7 +53,7 @@ const AuthContainer = ({ children, currentUser, logout }) => {
               </li>
               <li>
                 <Link to="http://"> <span className="admin-navbar-item-icon fa fa-comment-dots" title="Tables"/> <span className="sm-hide">Tables</span> </Link>
-              </li>
+              </li> */}
               
               <li className="drop-down">
                 <Link href="http://" > <span className="admin-navbar-item-icon fa fa-user" title="Tables"/> <span className="sm-hide">User</span> <span className="fa fa-arrow-circle-down" /> </Link>

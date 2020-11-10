@@ -1,8 +1,9 @@
-import { MAKE_INVESTMENT_CONTRIBUTION, CREATE_INVESTMENT, UPDATE_INVESTMENT, GET_INVESTMENT_ITEM, GET_INVESTMENT_LIST, RESET_INVESTMENT_DATA, DELETE_INVESTMENT, GET_MY_CONTRIBUTIONS} from "../_actions/types";
+import { GET_INVESTORS, MAKE_INVESTMENT_CONTRIBUTION, CREATE_INVESTMENT, UPDATE_INVESTMENT, GET_INVESTMENT_ITEM, GET_INVESTMENT_LIST, RESET_INVESTMENT_DATA, DELETE_INVESTMENT, GET_MY_CONTRIBUTIONS} from "../_actions/types";
 
 const initialState = {
   newContribution: null,
   currentUserContributions: [],
+  investors: [],
 
 
   investmentItems: [],
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
 
   switch (type) {
     
+    case GET_INVESTORS:
+      return {
+        ...state,
+        investors: payload
+      }
     case MAKE_INVESTMENT_CONTRIBUTION:
       return {
         ...state,

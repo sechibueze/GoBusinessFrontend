@@ -1,16 +1,17 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import { getAllusers, deleteUserById, toggleAdminAuth } from '../../../_actions/UserActions';
 import AuthContainer from '../AuthContainer';
 
-import { DELETE_USER, GET_ALL_USERS, TOGGLE_ADMIN_AUTH } from '../../../_actions/types';
+import { DELETE_USER, TOGGLE_ADMIN_AUTH } from '../../../_actions/types';
 import Alert from '../../Alert/Alert';
 
 const UserManager = ({loading, currentUser, getAllusers, toggleAdminAuth ,deleteUserById, secret, users, deletedUser }) => {
  
   const filter = currentUser.auth.includes('admin') ? {} : { ownerId: currentUser.id };
-  useEffect(() => getAllusers(filter), [deletedUser, secret]);
+  const getAllusersWithFilter = () => getAllusers(filter);
+  useEffect(getAllusersWithFilter, [deletedUser, secret]);
   
   const onDeleteUser = id => {
     if (window.confirm("Are you sure ? ")) {

@@ -20,10 +20,10 @@ const AddBusinessForm = ({ createBusiness, dismiss, newBusiness}) => {
   }
   const handleSubmit =(e) => {
     e.preventDefault();
-     console.log('new Busiense', data);
     return createBusiness(data);
   }
-  useEffect(() => {if (newBusiness !== null) dismiss()}, [newBusiness])
+  const dismissWhenAdded = () => {if (newBusiness !== null) dismiss()};
+  useEffect(dismissWhenAdded, [newBusiness])
 
   const { name, description, email, address, phone, cac_number} = data;
   return ( 

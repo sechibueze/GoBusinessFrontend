@@ -8,9 +8,8 @@ import { getBusinessListByFilter } from '../../../_actions/BusinessActions';
 
 
 const Dashboard = ({loading, businessItems, getBusinessListByFilter }) => {
-  useEffect(() => {
-    getBusinessListByFilter();
-  }, []);
+  
+  useEffect(getBusinessListByFilter, []);
   return ( 
     <AuthContainer>
       {

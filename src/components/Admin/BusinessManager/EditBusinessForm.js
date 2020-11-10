@@ -24,7 +24,8 @@ const EditBusinessForm = ({businessData, editBusiness, dismiss, updatedBusiness}
     e.preventDefault();
     return editBusiness(data);
   }
-  useEffect(() => {if (updatedBusiness !== null) dismiss()}, [updatedBusiness])
+  const dismissWhenUpdated = () => {if (updatedBusiness !== null) dismiss()};
+  useEffect(dismissWhenUpdated, [updatedBusiness])
 
   const { name, description, email, address, phone, cac_number} = data;
   return ( 

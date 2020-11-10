@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import { getInvestmentList } from '../../_actions/InvestmentActions';
 import InvestmentCard from '../InvestmentCard/InvestmentCard';
-
+import Navbar from '../Navbar/Navbar';
 const Showcase = ({ title,  investmentItems, getInvestmentList}) => {
-  
-  useEffect(() => getInvestmentList(), []);
+  const loadInvestments = () => getInvestmentList();
+  useEffect(loadInvestments, []);
    return ( 
-    <section className="section">
-      <span className="section-title"> { title && title } </span>
-      <div className="container">
-        <div className="card-wrapper">
-          {
-            investmentItems.length > 0 && investmentItems.map((investment, idx) => <InvestmentCard key={idx} investment={investment} />)
-          }
+    <Fragment>
+      <Navbar />
+      <section className="section">
+        <span className="section-title"> Leading Investments </span>
+        <div className="container">
+          <div className="card-wrapper">
+            {
+              investmentItems.length > 0 && investmentItems.map((investment, idx) => <InvestmentCard key={idx} investment={investment} />)
+            }
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Fragment>
    );
 }
 

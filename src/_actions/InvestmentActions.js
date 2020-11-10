@@ -1,7 +1,31 @@
-import { baseURL, GET_INVESTMENT_ITEM, GET_INVESTMENT_LIST, RESET_INVESTMENT_DATA, LOADED, LOADING, CREATE_INVESTMENT, UPDATE_INVESTMENT, GET_BUSINESS_ITEM, MAKE_INVESTMENT_CONTRIBUTION, GET_MY_CONTRIBUTIONS } from "./types";
+import { 
+  baseURL, GET_INVESTORS, GET_INVESTMENT_ITEM, GET_INVESTMENT_LIST,
+   RESET_INVESTMENT_DATA, LOADED, LOADING, CREATE_INVESTMENT, UPDATE_INVESTMENT
+  ,MAKE_INVESTMENT_CONTRIBUTION, GET_MY_CONTRIBUTIONS } from "./types";
 import { getRequestConfig } from './AuthActions';
 import { setAlert } from "./AlertActions";
 
+export const getInvestorsOfInvestment = (investmentId) => dispatch => {
+  dispatch({ type: LOADING});
+  let url = `${ baseURL }/api/investments/${ investmentId }/investors`;
+  const reqConfig = getRequestConfig("GET");
+  fetch(url, reqConfig)
+    .then(response => {
+      if(!response.ok) {
+        return response.json().then(errorObj => dispatch(setAlert(errorObj.errors, GET_INVESTORS)))
+      }     
+      return response.json();
+    })
+    .then(data => {
+      if(data){
+        dispatch({ type: GET_INVESTORS, payload: data.data});
+        dispatch(setAlert(data.message, GET_INVESTORS, 'success'));
+      }
+      dispatch({ type: LOADED})
+    }).catch(err => {
+      return dispatch(setAlert("A network error has occurred", GET_INVESTORS));
+    })
+};
 export const getCurrentUserContributions = () => dispatch => {
   dispatch({ type: LOADING});
   let url = `${ baseURL }/api/users/investments`;

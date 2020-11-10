@@ -14,7 +14,8 @@ const InvestmentManager = ({loading, currentUser, getInvestmentList, resetInvest
   const [editInvestmentModal, setEditInvestmentModal] = useState(false);
   const [editInvestmentData, setEditInvestmentData] = useState({ investment: ''});
   const filter = currentUser.auth.includes('admin') ? {} : { owner: currentUser.id };
-  useEffect(() => getInvestmentList(filter), [newInvestment, updatedInvestment, deletedInvestment]);
+  const getInvestmentListWithFilter = () => getInvestmentList(filter);
+  useEffect(getInvestmentListWithFilter, [newInvestment, updatedInvestment, deletedInvestment]);
   
   const deleteInvestmentById = investmentId => {
     if (window.confirm("I just do nothing for NOW ? " + investmentId)) {
